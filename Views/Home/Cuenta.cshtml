@@ -1,0 +1,100 @@
+@{
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../CSS/Cuenta.css">
+    <link rel="icon" href="../SRC/ASSETS/IMG/Icono.ico">
+    <script src="https://kit.fontawesome.com/44485b0623.js" crossorigin="anonymous"></script>  <!--librería para que el icono de whatsapp funcione correctamente-->
+    <title>Cuenta</title>
+</head>
+<body>
+    <!-- ESTE ES EL MENU BLANCO CON CADA UNA DE LAS PAGINAS -->
+    <header>
+        <a href="Inicio.html"><img class="logo" src="/IMG/MGCwhite.jpg" alt="Logo" height="70px" width="200px"></a>
+        <input type="checkbox" id="check">
+        <label for="check" class="show-menu">
+            &#8801
+        </label>
+        <nav class="menu">
+            <a href="@Url.Action("Cuenta", "Home")">Cuenta</a>
+            <a href="@Url.Action("index", "Home")">Inicio</a>
+            <a href="@Url.Action("Productos", "Home")">Productos</a>
+            <a href="@Url.Action("Nosotros", "Home")">Nosotros</a>
+            <a href="@Url.Action("Contacto", "Home")">Contacto</a>
+            <a href="@Url.Action("Carrito", "Home")"><i class="fas fa-shopping-cart"></i></a>
+            <label for="check" class="hide-menu">&#215</label>
+        </nav>
+    </header>
+    
+    <div id="login">
+    <div class="container" id="container">
+
+        <!-- REGISTRO -->
+
+        <div class="form-container sign-up-container">
+            <form id="registrationForm" onsubmit="return validarFormulario()">
+                <h1>Crear Cuenta</h1><br>
+                <input type="text" placeholder="Nombre" id="nameInput" required>
+                <input type="text" placeholder="Teléfono" id="phoneInput" required>
+                <input type="email" placeholder="Email" id="emailInput" required>
+                <input type="text" placeholder="N° de identificación" id="Cedula" required>
+                <input type="password" placeholder="Contraseña" id="passwordInput" required><br>
+                <div id="error-container" style="color: red;"></div> <!-- Cambio de id -->
+                <button type="submit">Regístrate</button>
+            </form>
+        </div>
+
+        <!-- FORMULARIO LOGIN -->
+
+        <div class="form-container sign-in-container">
+                 <form id="login-form" onsubmit="return iniciarSesion()" action="@Url.Action("Ingreso", "Home")">
+                <h1>Iniciar Sesión</h1><br>
+                <input type="text" placeholder="Número de identificación" id="lsap" required/>
+                <input type="password" placeholder="Contraseña" id="lpass" required/>
+                <div id="error-message" style="color: red;"></div>
+                <a href="RecupContraseña.html"><u>Olvidaste tu contraseña</u></a>
+                <button type="submit">Iniciar Sesión</button>
+            </form>
+        </div>
+    
+        <div class="overlay-container">
+            <div class="overlay">
+                <div class="overlay-panel overlay-left">
+                    <h1>Bienvenido de <br> nuevo!</h1>
+                    <p>Inicia sesión con tus datos personales para continuar con nosotros</p>
+                    <button class="ghost" id="signIn">Iniciar Sesión</button>
+                </div>
+                <div class="overlay-panel overlay-right">
+                    <h1>Hola usuario!</h1>
+                    <p>¡Regístrate y se parte de nosotros!</p>
+                    <button class="ghost" id="signUp">Registrate</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container-nets">
+    <ul>
+        <li><a href="https://www.instagram.com/magiccandys/" target="_blank"><img src="/IMG/instagram.svg" width="30" height="30"></a></li>
+        <li><a href="https://www.facebook.com/profile.php?id=100091925247816" target="_blank"><img src="/IMG/facebook.svg" width="30" height="30"></a></li>
+        <li><a href="https://web.whatsapp.com" target="_blank"><img src="/IMG/whatsapp.svg" width="30" height="30"></a></li>
+    </ul>
+</div>
+
+    <!-- ============================ICONO DE whatsapp PARA COMUNICACION=========================================== -->
+
+    <a href="https://wa.me/+3133813154" class="botonW"
+    title="Envíanos un mensaje" target="_blank">
+        <i class="fa fa-whatsapp"></i>
+        <!-- para que el ícono funcione, debemos incluir la librería de íconos fontawesome-->
+    </a>
+
+    <script src="../js/Validar.js"></script>
+    <script src="../js/Cuenta.js"></script>
+</body>
+</html>
+}

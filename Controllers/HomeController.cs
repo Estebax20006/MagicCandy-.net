@@ -18,10 +18,17 @@ namespace MagicCandy.Controllers
             return View();
         }
 
-        public IActionResult Privacy()
+        public IActionResult Cuenta()
         {
             return View();
         }
+
+        public IActionResult Ingreso()
+        {
+            return View();
+        }
+
+
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
