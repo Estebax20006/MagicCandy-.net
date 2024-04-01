@@ -28,7 +28,30 @@ namespace MagicCandy.Controllers
             return View();
         }
 
+        public IActionResult Nosotros()
+        {
+            return View();
+        }
 
+        public IActionResult Contacto()
+        {
+            return View();
+        }
+
+        public IActionResult Productos()
+        {
+            return View();
+        }
+
+        public IActionResult Carrito()
+        {
+            return View();
+        }
+
+        public IActionResult ProductoIngreso ()
+        {
+            return View();
+        }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()

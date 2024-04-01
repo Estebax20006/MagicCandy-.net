@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <link rel="stylesheet" href="../CSS/Carrito.css">
+    <link rel="icon" href="../SRC/ASSETS/IMG/Icono.ico">
+    <script src="https://kit.fontawesome.com/44485b0623.js" crossorigin="anonymous"></script>  <!--librería para que el icono de whatsapp funcione correctamente-->
+    <title>Carrito de Compras</title>
+</head>
+<body>
+    <!-- ESTE ES EL MENU BLANCO CON CADA UNA DE LAS PAGINAS -->
+    <header>
+        <a href="Inicio.html"><img class="logo" src="/IMG/MGCwhite.jpg" alt="Logo" height="70px" width="200px"></a>
+        <input type="checkbox" id="check">
+        <label for="check" class="show-menu">
+            &#8801
+        </label>
+        <nav class="menu">
+            <a href="@Url.Action("Cuenta", "Home")">Cuenta</a>
+            <a href="@Url.Action("index", "Home")">Inicio</a>
+            <a href="@Url.Action("Productos", "Home")">Productos</a>
+            <a href="@Url.Action("Nosotros", "Home")">Nosotros</a>
+            <a href="@Url.Action("Contacto", "Home")">Contacto</a>
+            <a href="@Url.Action("Carrito", "Home")"><i class="fas fa-shopping-cart"></i></a>
+            <label for="check" class="hide-menu">&#215</label>
+        </nav>
+    </header>
+
+    <div class="container">
+    <table id="carrito">
+        <thead>
+            <tr>
+                <th>Producto</th>
+                <th>Nombre</th>
+                <th>Precio</th>
+                <th>Cantidad</th>
+                <th>Subtotal</th>
+                <th>Eliminar</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+    </div>
+    <div class="total">
+        <div id="total"></div>
+    </div>
+    
+    <div class="buttons">
+        <button  class="btn-seguir" onclick="seguirComprando()">Seguir comprando</button>
+        <button  class="btn-finalizar" onclick="finalizarCompra()">Finalizar compra</button>
+    </div>
+
+<!-- ============================ICONO DE whatsapp PARA COMUNICACION=========================================== -->
+
+    <a href="https://wa.me/+3133813154" class="botonW"
+        title="Envíanos un mensaje" target="_blank">
+        <i class="fa fa-whatsapp"></i>
+        <!-- para que el ícono funcione, debemos incluir la librería de íconos fontawesome-->
+    </a>
+
+    <script>
+        function cargarProductosDelCarrito() {
+            var carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+            var carritoHTML = document.querySelector('#carrito tbody');
+            var totalHTML = document.getElementById('total');
+            var total = 0;
+
+            // Limpiar contenido previo del carrito
+            carritoHTML.innerHTML = '';
+
+            // Mostrar los productos en el carrito
+            if (carrito.length === 0) {
+                carritoHTML.innerHTML = '<tr><td colspan="6">El carrito está vacío</td></tr>';
+            } else {
+                carrito.forEach(function(producto) {
+                    var subtotalProducto = producto.precio * producto.cantidad; // Calcular el subtotal del producto
+                    total += subtotalProducto; // Sumar al total de la factura
+
+                    var row = document.createElement('tr');
+                    row.innerHTML = `
+                        <td><img src="${producto.imagen}" alt="${producto.nombre}" style="width: 50px; height: 50px;"></td>
+                        <td>${producto.nombre}</td>
+                        <td>$${producto.precio}</td>
+                        <td><input type="number" min="1" value="${producto.cantidad}" onchange="actualizarCantidad(${producto.id}, this.value)"></td>
+                        <td>$${subtotalProducto}</td>
+                        <td><button class="btn-eliminar" onclick="eliminarDelCarrito(${producto.id})">Eliminar</button></td>
+                    `;
+                    carritoHTML.appendChild(row);
+                });
+
+                // Mostrar el total de la factura
+                totalHTML.innerHTML = `<p>Total: $${total}</p>`;
+            }
+        }
+
+        // Función para seguir comprando
+        function seguirComprando() {
+            // Redireccionar a la página de productos
+            window.location.href = 'productos.html'; // Reemplaza 'productos.html' con la URL de tu página de productos
+        }
+
+        // Función para finalizar compra
+        function finalizarCompra() {
+            // Aquí puedes agregar la lógica para finalizar la compra
+            // Por ejemplo, podrías limpiar el carrito y redireccionar a una página de confirmación de compra
+            localStorage.removeItem('carrito');
+            cargarProductosDelCarrito(); // Limpiar la vista del carrito
+            alert('¡Compra realizada con éxito!');
+        }
+
+        // Función para actualizar la cantidad de un producto en el carrito
+        function actualizarCantidad(idProducto, cantidad) {
+            var carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+            var productoIndex = carrito.findIndex(function(producto) {
+                return producto.id === idProducto;
+            });
+            if (productoIndex !== -1) {
+                carrito[productoIndex].cantidad = parseInt(cantidad);
+                localStorage.setItem('carrito', JSON.stringify(carrito));
+                cargarProductosDelCarrito(); // Recargar los productos del carrito para reflejar los cambios
+            }
+        }
+
+        // Función para eliminar un producto del carrito
+        function eliminarDelCarrito(idProducto) {
+            var carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+            var nuevoCarrito = carrito.filter(function(producto) {
+                return producto.id !== idProducto;
+            });
+            localStorage.setItem('carrito', JSON.stringify(nuevoCarrito));
+            cargarProductosDelCarrito(); // Recargar los productos del carrito para reflejar los cambios
+        }
+
+        // Cargar los productos del carrito al cargar la página
+        window.onload = function() {
+            cargarProductosDelCarrito();
+        };
+    </script>
+</body>
+</html>

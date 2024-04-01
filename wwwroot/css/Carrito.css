@@ -1,0 +1,193 @@
+@import url("https://fonts.googleapis.com/css?family=Montserrat:400,800");
+
+/* RESET LO QUE QUIERE DECIR ES QUE TODA LA PAG YO LE PONGO LAS MEDIDAS QUE SE QUIERAN*/
+*{
+    margin: 0;
+    padding: 0;
+    font-family: "Montserrat", sans-serif;
+    text-decoration: none;
+    
+}
+
+/* HEADER */
+
+header{
+    height: 100px;
+    width: 100;
+    background-color: white;
+    padding: 0 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.menu a{
+    text-transform: uppercase;
+    text-decoration: none;
+    color: black;
+    padding:0 10px;
+    display: inline-block;
+}
+
+.show-menu, 
+.hide-menu{
+    font-size: 30px;
+    cursor: pointer;
+    display: none;
+    text-decoration: none;
+    color: black;
+    transition: 0,04s;
+}
+
+.show-menu{
+    order: 1;
+}
+
+.menu a:hover,
+.show-menu,
+.hide-menu{
+    color: black;
+}
+
+#check{
+    display: none;
+}
+
+/* RESPONSIVE */
+
+@media (max-width:760px){
+    /* HEADER */
+    .hide-menu,
+    .show-menu{
+        display:block;
+    }
+    .menu{
+        position: fixed;
+        width: 100%;
+        height: 100vh;
+        background: white;
+        right: 100%;
+        top: 0;
+        text-align: center;
+        padding: 100px 0px;
+        z-index: 100;
+        transition: 0,08s;
+        text-decoration: none;
+    }
+    .menu a{
+        display: block;
+        padding: 20px;
+        text-decoration: none;
+        color: black;
+    }
+    .hide-menu{
+        position: absolute;
+        top: 40px;
+        right: 40px;
+    }
+    #check:checked ~ .menu{
+        right: 0;
+    }
+}
+
+body{
+    background-color: #f9f9f9;
+}
+.container {
+    text-align: center; /* Centra el contenido horizontalmente */
+}
+
+table {
+    margin: 2% auto; /* Centra la tabla horizontalmente */
+    border-collapse: collapse; /* Elimina los espacios entre las celdas */
+    width: 80%; /* Ajusta el ancho de la tabla */
+    max-width: 800px; /* Establece un ancho máximo */
+}
+
+td, th {
+    border: 1px solid #dddddd; /* Agrega bordes a las celdas */
+    padding: 8px; /* Añade espacio interno */
+    text-align: center; /* Alinea el texto al centro horizontalmente */
+    vertical-align: middle; /* Centra el contenido verticalmente */
+}
+
+th {
+    background-color: #6dcbeb; /* Color de fondo para las celdas de encabezado */
+}
+
+tr:nth-child(even) {
+    background-color: #f9f9f9; /* Color de fondo para las filas pares */
+}
+
+tr:hover {
+    background-color: #f5f5f5; /* Color de fondo al pasar el cursor sobre una fila */
+}
+
+.container {
+    text-align: center; /* Centra el contenido horizontalmente */
+}
+
+.total, .buttons {
+    margin-top: 20px; /* Espacio superior */
+    text-align: center;
+}
+
+.btn-seguir, .btn-finalizar {
+    background-color: #6dcbeb; /* Azul claro para seguir comprando */
+    color: #000; /* Texto blanco */
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+    display: inline-block; /* Muestra los botones en línea */
+    margin-right: 10px; /* Espacio entre los botones */
+}
+
+.btn-finalizar {
+    background-color: #ffd700; /* Amarillo para finalizar compra */
+    color: #000; /* Texto negro */
+}
+
+.btn-eliminar {
+    background-color: #fa4e4e; /* Verde para eliminar */
+    color: #fff; /* Texto blanco */
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+    display: inline-block; /* Muestra el botón en línea */
+}
+
+.btn-seguir:hover, .btn-finalizar:hover, .btn-eliminar:hover {
+    opacity: 0.8; /* Cambia la opacidad al pasar el cursor */
+}
+
+.botonW{
+    position: fixed;
+    width: 40px;
+    height: 43px;
+    padding: 10px 10px 9px 12px;
+    color:#fff;
+    background: #4bc75a;
+    border-radius: 50%;
+    font-size: 2.0em;
+    text-align: center;
+    vertical-align: middle;
+    bottom: 20px;
+    right:20px
+}
+
+.botonW:hover {
+    background: #4bc75a;
+}
+.botonW:hover i {
+    color: #fff; /* Color blanco para el icono al pasar el mouse */
+}
+
+
+
+

@@ -8,10 +8,12 @@
 
   <ItemGroup>
     <Compile Remove="Views\Home\Class.cs" />
+    <Compile Remove="Views\Home\ProductoEntrada.cshtml.cs" />
   </ItemGroup>
 
   <ItemGroup>
     <Content Remove="Views\Home\Privacy.cshtml" />
+    <Content Remove="Views\Home\ProductoEntrada.cshtml" />
     <Content Remove="wwwroot\css\site.css" />
     <Content Remove="wwwroot\js\Cuenta - Copia.js" />
     <Content Remove="wwwroot\js\site.js" />
