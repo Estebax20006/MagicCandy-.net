@@ -1,64 +1,44 @@
-﻿
-    <!DOCTYPE html>
-    <html lang="es">
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="../CSS/Contacto.css">
-        <link rel="icon" href="../SRC/ASSETS/IMG/Icono.ico">
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-        <script src="https://kit.fontawesome.com/44485b0623.js" crossorigin="anonymous"></script>  <!--librería para que el icono de whatsapp funcione correctamente-->
-        <title>Contacto</title>
-    </head>
-    <body>
-        <!-- ESTE ES EL MENU BLANCO CON CADA UNA DE LAS PAGINAS -->
-        <header>
-            <a href="Inicio.html"><img class="logo" src="/IMG/MGCwhite.jpg" alt="Logo" height="70px" width="200px"></a>
-            <input type="checkbox" id="check">
-            <label for="check" class="show-menu">
-                &#8801
-            </label>
-            <nav class="menu">
-                <a href="@Url.Action("Cuenta", "Home")">Cuenta</a>
-                <a href="@Url.Action("index", "Home")">Inicio</a>
-                <a href="@Url.Action("Productos", "Home")">Productos</a>
-                <a href="@Url.Action("Nosotros", "Home")">Nosotros</a>
-                <a href="@Url.Action("Contacto", "Home")">Contacto</a>
-                <a href="@Url.Action("Carrito", "Home")"><i class="fas fa-shopping-cart"></i></a>
-                <label for="check" class="hide-menu">&#215</label>
-            </nav>
-        </header>
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title> MagiCandy </title>
+    <link rel="stylesheet" href="../css/Dashboard2.css">
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="../../assets/img/Icono.ico">
+</head>
+<body>
 
     <div class="sidebar close">
         <!-- LINK DE TODAS LAS PAGINAS -->
         <ul class="nav-links">
             <!-- INICIO -->
             <li>
-                <a href="../dahsboard/Ingreso.html">
+                <a href="@Url.Action("Ingreso", "Home")">
                     <i class='bx bx-home'></i>
                     <span class="link_name">Inicio</span>
                 </a>
                 <ul class="sub-menu blank">
-                    <li><a class="link_name" href="../dahsboard/Ingreso.html">Inicio</a></li>
+                    <li><a class="link_name" href="@Url.Action("Ingreso", "Home")">Inicio</a></li>
                 </ul>
             </li>
 
             <!-- HOJA DE PERFIL -->
             <li>
-                <a href="../dahsboard/Perfil.html">
+                <a href="@Url.Action("Perfil", "Home")">
                     <i class='bx bx-id-card'></i>
                     <span class="link_name">Perfil</span>
                 </a>
                 <ul class="sub-menu blank">
-                    <li><a class="link_name" href="../dahsboard/Perfil.html">Perfil</a></li>
+                    <li><a class="link_name" href="@Url.Action("Perfil", "Home")">Perfil</a></li>
                 </ul>
             </li>
-            </li>
+
             <!-- HOJA DE VENTAS -->
             <li>
                 <div class="iocn-link">
-                    <a href="../dahsboard/ReporteVentas.html">
+                    <a href="#">
                         <i class='bx bx-collection'></i>
                         <span class="link_name">Ventas</span>
                     </a>
@@ -66,11 +46,12 @@
                 </div>
                 <ul class="sub-menu">
                     <li><a class="link_name" href="#">Ventas</a></li>
-                    <li><a href="../dahsboard/ReporteVentas.html">- Reporte de ventas</a></li>
+                    <li><a href="@Url.Action("ReporteVentas", "Ventas")">- Reporte de ventas</a></li>
                 </ul>
             </li>
+
+            <!-- MENU DE INVENTARIO CON SUB CATEGORIAS -->
             <li>
-                <!-- MENU DE INVENTARIO CON SUB CATEGORIAS -->
                 <div class="iocn-link">
                     <a href="#">
                         <i class='bx bx-book-alt'></i>
@@ -81,18 +62,20 @@
                 <ul class="sub-menu">
                     <li><a class="link_name" href="#">Inventario</a></li>
                     <li><a href="#"><u>Productos:</u></a></li>
-                    <li><a href="../dahsboard/RegistroProducto.html">- Registra Productos</a></li>
-                    <li><a href="../dahsboard/ProductoEntrada.html">- Entrada Productos</a></li>
-                    <li><a href="../dahsboard/ProductoConsultar.html">- Consultar Productos</a></li>
-                    <li><a href="../dahsboard/ProductoNovedad.html">- Registrar Novedad</a></li>
+                    <li><a href="@Url.Action("ProductoIngreso", "Home")">- Registra Productos</a></li>
+                    <li><a href="@Url.Action("EntradaProductos", "Inventario")">- Entrada Productos</a></li>
+                    <li><a href="@Url.Action("Edit", "Home")">- Consultar Productos</a></li>
+                    <li><a href="@Url.Action("RegistrarNovedad", "Inventario")">- Registrar Novedad</a></li>
                     <li><a href="#"><u>Insumos:</u></a></li>
-                    <li><a href="../dahsboard/InsumoRegistrar.html">- Registra Insumos</a></li>
-                    <li><a href="../dahsboard/InsumoEntrada.html">- Entrada Insumos</a></li>
-                    <li><a href="../dahsboard/InsumoConsultar.html">- Consultar Insumos</a></li>
-                    <li><a href="../dahsboard/InsumoNovedad.html">- Registrar Novedad</a></li>
-                    <li><a href="../dahsboard/InsumoSalida.html">- Registrar Salida</a></li>
+                    <li><a href="@Url.Action("RegistrarInsumos", "Inventario")">- Registra Insumos</a></li>
+                    <li><a href="@Url.Action("EntradaInsumos", "Inventario")">- Entrada Insumos</a></li>
+                    <li><a href="@Url.Action("ConsultarInsumos", "Inventario")">- Consultar Insumos</a></li>
+                    <li><a href="@Url.Action("RegistrarNovedadInsumos", "Inventario")">- Registrar Novedad</a></li>
+                    <li><a href="@Url.Action("RegistrarSalida", "Inventario")">- Registrar Salida</a></li>
                 </ul>
-                <!-- MENU DE PRODUCCION -->
+            </li>
+
+            <!-- MENU DE PRODUCCION -->
             <li>
                 <div class="iocn-link">
                     <a href="#">
@@ -104,14 +87,14 @@
                 <ul class="sub-menu">
                     <li><a class="link_name" href="#">Producción</a></li>
                     <li><a href="#"><u>Orden Producción:</u></a></li>
-                    <li><a href="../dahsboard/OrdenCrear.html">- Crear Orden</a></li>
-                    <li><a href="../dahsboard/OrdenConsultar.html">- Consultar Orden</a></li>
+                    <li><a href="@Url.Action("CrearOrden", "Produccion")">- Crear Orden</a></li>
+                    <li><a href="@Url.Action("ConsultarOrden", "Produccion")">- Consultar Orden</a></li>
                     <li><a href="#"><u>Actividades</u></a></li>
-                    <li><a href="../dahsboard/ActividadNueva.html">- Nueva Actividad</a></li>
-                    <li><a href="../dahsboard/ActividadConsultar.html">- Consultar Actividades</a></li>
+                    <li><a href="@Url.Action("NuevaActividad", "Produccion")">- Nueva Actividad</a></li>
+                    <li><a href="@Url.Action("ConsultarActividades", "Produccion")">- Consultar Actividades</a></li>
                     <li><a href="#"><u>Novedades:</u></a></li>
-                    <li><a href="../dahsboard/NovedadGenerar.html">- Generar Novedad</a></li>
-                    <li><a href="../dahsboard/NovedadConsultar.html">- Consultar Novedad</a></li>
+                    <li><a href="@Url.Action("GenerarNovedad", "Produccion")">- Generar Novedad</a></li>
+                    <li><a href="@Url.Action("ConsultarNovedad", "Produccion")">- Consultar Novedad</a></li>
                 </ul>
             </li>
 
@@ -121,11 +104,12 @@
                     <a href="../../Inicio.html">
                         <i class="bx bx-log-out"></i>
                     </a>
-                    <img src="../../assets/img/Logo.webp" width="90PX">
+                    <img src="../IMG/MGCwhite.jpg" width="90PX">
                 </div>
             </li>
         </ul>
     </div>
+
 
     <section class="home-section">
 
@@ -140,55 +124,60 @@
 
     <section class="form-production" style="margin-top: 10%;">
 
-        <label for="produccio-num">Registro de Producto</label><br><br><hr><br>
+ @model MagicCandy.Models.Product
 
-        <form action="#" method="POST" enctype="multipart/form-data">
+<h1>Create</h1>
 
-            <!-- PRODUCTO -->
-            <label for="pkid_producto">ID del producto:</label>
-            <input type="text" id="producto" style="font-size: large;" name="pkid_producto" pattern="\d{7,13}" title="El ID del producto debe contener entre 7 y 13 números." required>
-
-            <!-- NOMBRE PRODUCTO -->
-            <label for="nombre_producto" style="margin-left: 15%;">Nombre del producto:</label>
-            <input type="text" id="nombre" style="font-size: large;" name="nombre_producto" pattern="[a-zA-Z\s]+" title="El nombre solo debe contener letras y espacios." required><br><br>
-
-            <!-- CATEGORIA -->
-            <label for="categoria" style="font-size: large;">Categoría:</label>
-            <select name="categoria" id="categoria" style="font-size: large;">
-                <option value="gomas">Gomas</option>
-                <option value="refrescos">Refrescos</option>
-                <option value="acidos">Ácidos</option>
-                <option value="chocolates">Chocolates</option>
-            </select>
-
-            <!-- PRECIO UNITARIO -->
-            <label for="precio_unidad" style="margin-left: 30.5%;">Precio Unitario:</label>
-            <input type="text" name="precio_unidad" id="precio" style="font-size: large;" pattern="^(?!0)\d+(\.\d{1,2})?$" title="Ingrese un número positivo o decimal. No debe comenzar con cero." required><br><br>
-
-            <!-- CANTIDADES -->
-            <label for="cantidad_producto">Cantidades:</label>
-            <input type="number" name="cantidad_producto" id="cantidad" style="font-size: large;" required min="1" step="1">
-
-            <!-- IMAGEN DEL PRODUCTO -->
-            <label for="imagen_producto" style="margin-left: 18.5%;">Imagen del producto:</label><br><br>
-            <input type="file" name="imagen_producto" id="imagen" class="btn-archive" style="margin-left: 54%;"><br><br>
-
-            <!-- BOTON PARA CREAR PRODUCCION -->
-            <button type="submit" class="btn-crearPro" name="guardarProducto">Registrar producto ✔</button>
-            <a href="Ingreso.html"><button type="button" class="btn-cancelarPro">Cancelar registro ✖</button></a>
-
+<h4>Product</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Quantity" class="control-label"></label>
+                <input asp-for="Quantity" class="form-control" />
+                <span asp-validation-for="Quantity" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="UnitPrice" class="control-label"></label>
+                <input asp-for="UnitPrice" class="form-control" />
+                <span asp-validation-for="UnitPrice" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Category" class="control-label"></label>
+                <input asp-for="Category" class="form-control" />
+                <span asp-validation-for="Category" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ProductImage" class="control-label"></label>
+                <input asp-for="ProductImage" class="form-control" />
+                <span asp-validation-for="ProductImage" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
         </form>
+    </div>
+</div>
 
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
 
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
 
 
     </section>
     <br>
     <br>
-
-
-    <script src="../js/navdb.js"></script>
-        
-    </body>
-    </html>
-
+    <script src="../../../js/navdb.js"></script>
+</body>
+</html>

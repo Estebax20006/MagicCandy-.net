@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <title> MagiCandy </title>
-    <link rel="stylesheet" href="../CSS/Formulario2.css">
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../CSS/Dashboard2.css">
@@ -15,30 +14,30 @@
         <ul class="nav-links">
             <!-- INICIO -->
             <li>
-                <a href="../DAHSPAGS/Ingreso.html">
+                <a href="@Url.Action("Ingreso", "Home")">
                     <i class='bx bx-home'></i>
                     <span class="link_name">Inicio</span>
                 </a>
                 <ul class="sub-menu blank">
-                    <li><a class="link_name" href="../DAHSPAGS/Ingreso.html">Inicio</a></li>
+                    <li><a class="link_name" href="@Url.Action("Ingreso", "Home")">Inicio</a></li>
                 </ul>
             </li>
 
             <!-- HOJA DE PERFIL -->
             <li>
-                <a href="../DAHSPAGS/Perfil.html">
+                <a href="@Url.Action("Perfil", "Home")">
                     <i class='bx bx-id-card'></i>
                     <span class="link_name">Perfil</span>
                 </a>
                 <ul class="sub-menu blank">
-                    <li><a class="link_name" href="../DAHSPAGS/Perfil.html">Perfil</a></li>
+                    <li><a class="link_name" href="@Url.Action("Perfil", "Home")">Perfil</a></li>
                 </ul>
             </li>
-            </li>
+
             <!-- HOJA DE VENTAS -->
             <li>
                 <div class="iocn-link">
-                    <a href="../DAHSPAGS/ReporteVentas.html">
+                    <a href="#">
                         <i class='bx bx-collection'></i>
                         <span class="link_name">Ventas</span>
                     </a>
@@ -46,11 +45,12 @@
                 </div>
                 <ul class="sub-menu">
                     <li><a class="link_name" href="#">Ventas</a></li>
-                    <li><a href="../DAHSPAGS/ReporteVentas.html">- Reporte de ventas</a></li>
+                    <li><a href="@Url.Action("ReporteVentas", "Ventas")">- Reporte de ventas</a></li>
                 </ul>
             </li>
+
+            <!-- MENU DE INVENTARIO CON SUB CATEGORIAS -->
             <li>
-                <!-- MENU DE INVENTARIO CON SUB CATEGORIAS -->
                 <div class="iocn-link">
                     <a href="#">
                         <i class='bx bx-book-alt'></i>
@@ -61,18 +61,20 @@
                 <ul class="sub-menu">
                     <li><a class="link_name" href="#">Inventario</a></li>
                     <li><a href="#"><u>Productos:</u></a></li>
-                    <li><a href="#">- Registra Productos</a></li>
-                    <li><a href="ProductoIngreso.cshtml">- Entrada Productos</a></li>
-                    <li><a href="#">- Consultar Productos</a></li>
-                    <li><a href="#">- Registrar Novedad</a></li>
+                    <li><a href="@Url.Action("ProductoIngreso", "Home")">- Registra Productos</a></li>
+                    <li><a href="@Url.Action("EntradaProductos", "Inventario")">- Entrada Productos</a></li>
+                    <li><a href="@Url.Action("ConsultarProductos", "Inventario")">- Consultar Productos</a></li>
+                    <li><a href="@Url.Action("RegistrarNovedad", "Inventario")">- Registrar Novedad</a></li>
                     <li><a href="#"><u>Insumos:</u></a></li>
-                    <li><a href="../Views/Home/RegistroInsumocshtml.cshtml">- Registra Insumos</a></li>
-                    <li><a href="#">- Entrada Insumos</a></li>
-                    <li><a href="#">- Consultar Insumos</a></li>
-                    <li><a href="#">- Registrar Novedad</a></li>
-                    <li><a href="#">- Registrar Salida</a></li>
+                    <li><a href="@Url.Action("RegistrarInsumos", "Inventario")">- Registra Insumos</a></li>
+                    <li><a href="@Url.Action("EntradaInsumos", "Inventario")">- Entrada Insumos</a></li>
+                    <li><a href="@Url.Action("ConsultarInsumos", "Inventario")">- Consultar Insumos</a></li>
+                    <li><a href="@Url.Action("RegistrarNovedadInsumos", "Inventario")">- Registrar Novedad</a></li>
+                    <li><a href="@Url.Action("RegistrarSalida", "Inventario")">- Registrar Salida</a></li>
                 </ul>
-                <!-- MENU DE PRODUCCION -->
+            </li>
+
+            <!-- MENU DE PRODUCCION -->
             <li>
                 <div class="iocn-link">
                     <a href="#">
@@ -84,21 +86,21 @@
                 <ul class="sub-menu">
                     <li><a class="link_name" href="#">Producción</a></li>
                     <li><a href="#"><u>Orden Producción:</u></a></li>
-                    <li><a href="../DAHSPAGS/CrearOrden.php">- Crear Orden</a></li>
-                    <li><a href="../DAHSPAGS/consultarOrden.php">- Consultar Orden</a></li>
+                    <li><a href="@Url.Action("CrearOrden", "Produccion")">- Crear Orden</a></li>
+                    <li><a href="@Url.Action("ConsultarOrden", "Produccion")">- Consultar Orden</a></li>
                     <li><a href="#"><u>Actividades</u></a></li>
-                    <li><a href="../DAHSPAGS/NuevaActividad.html">- Nueva Actividad</a></li>
-                    <li><a href="Error404.html">- Consultar Actividades</a></li>
+                    <li><a href="@Url.Action("NuevaActividad", "Produccion")">- Nueva Actividad</a></li>
+                    <li><a href="@Url.Action("ConsultarActividades", "Produccion")">- Consultar Actividades</a></li>
                     <li><a href="#"><u>Novedades:</u></a></li>
-                    <li><a href="../DAHSPAGS/GenerarNovedad.html">- Generar Novedad</a></li>
-                    <li><a href="Error404.html">- Consultar Novedad</a></li>
+                    <li><a href="@Url.Action("GenerarNovedad", "Produccion")">- Generar Novedad</a></li>
+                    <li><a href="@Url.Action("ConsultarNovedad", "Produccion")">- Consultar Novedad</a></li>
                 </ul>
             </li>
 
             <!-- PARA CERRAR SESION -->
             <li>
                 <div class="profile-details">
-                    <a asp-controller="Home" asp-action="Index">
+                    <a href="../../Inicio.html">
                         <i class="bx bx-log-out"></i>
                     </a>
                     <img src="../IMG/MGCwhite.jpg" width="90PX">
@@ -106,6 +108,7 @@
             </li>
         </ul>
     </div>
+
 
     <section class="home-section">
         <div class="home-content">
