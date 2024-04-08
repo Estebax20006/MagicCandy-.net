@@ -26,4 +26,5 @@ public partial class User
     public virtual Role FkRoles { get; set; } = null!;
 
     public virtual ICollection<Order> Orders { get; set; } = new List<Order>();
+    public int Id { get; internal set; }
 }
