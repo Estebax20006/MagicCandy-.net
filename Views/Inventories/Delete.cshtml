@@ -1,0 +1,115 @@
+﻿@model MagicCandy.Models.Inventory
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<style>
+    .centered-form {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: #f0f8ff;
+    }
+
+    .form-container {
+        width: 500px;
+    }
+
+    .form-box {
+        background-color: #f0f8ff;
+        border: 1px solid #ddd;
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .btn-back {
+        background-color: #28a745;
+        color: #fff;
+        font-size: 20px;
+        padding: 10px 20px;
+        border-radius: 8px;
+        border: none;
+        text-decoration: none;
+    }
+
+    .center-button {
+        text-align: center;
+    }
+
+    .container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #f0f8ff;
+        border-radius: 10px;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .row {
+        margin-bottom: 10px;
+    }
+
+    dt {
+        font-weight: bold;
+    }
+</style>
+
+<div class="container">
+    <h1>Delete Inventory</h1>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.EntryDate)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.EntryDate)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.EntryQuantity)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.EntryQuantity)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.ExitDate)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.ExitDate)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.ExitQuantity)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.ExitQuantity)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.ExpirationDate)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.ExpirationDate)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TotalQuantity)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TotalQuantity)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.ExitDescription)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.ExitDescription)
+        </dd>
+    </dl>
+
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="Pkid" />
+        <div class="form-group center-button">
+            <input type="submit" value="Delete" class="btn btn-danger" /> |
+            <a asp-action="Listado" class="btn btn-back">Listado</a>
+        </div>
+    </form>
+</div>

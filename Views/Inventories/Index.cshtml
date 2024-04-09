@@ -123,58 +123,66 @@
     </section>
 
     <section class="form-production" style="margin-top: 10%;">
-
-
-        @model MagicCandy.Models.Supply
+        @model IEnumerable<MagicCandy.Models.Inventory>
 
         @{
-            ViewData["Title"] = "Create";
+            ViewData["Title"] = "Index";
         }
 
-        <h3>Insumos</h3>
+        <h1>Index</h1>
 
-        <hr />
-        <div class="row">
-            <div class="col-md-4">
-                <form asp-action="Create">
-                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-                    <div class="form-group">
-                        <label asp-for="Quantity" class="control-label"></label>
-                        <input asp-for="Quantity" class="form-control" />
-                        <span asp-validation-for="Quantity" class="text-danger"></span>
-                    </div>
-                    <div class="form-group">
-                        <label asp-for="Category" class="control-label"></label>
-                        <input asp-for="Category" class="form-control" />
-                        <span asp-validation-for="Category" class="text-danger"></span>
-                    </div>
-                    <div class="form-group">
-                        <label asp-for="Unit" class="control-label"></label>
-                        <input asp-for="Unit" class="form-control" />
-                        <span asp-validation-for="Unit" class="text-danger"></span>
-                    </div>
-                    <div class="form-group">
-                        <label asp-for="Name" class="control-label"></label>
-                        <input asp-for="Name" class="form-control" />
-                        <span asp-validation-for="Name" class="text-danger"></span>
-                    </div>
-                    <div class="form-group">
-                        <input type="submit" value="Create" class="btn btn-primary" />
-                    </div>
-                </form>
-            </div>
-        </div>
-
-        <div>
-            <a asp-action="Index">Listado</a>
-        </div>
-
-        @section Scripts {
-            @{
-                await Html.RenderPartialAsync("_ValidationScriptsPartial");
-            }
-        }
-
+        <p>
+            <a asp-action="Create" class="btn btn-success>Crear Nuevo</a>
+        </p>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.EntryDate)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.EntryQuantity)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.ExitDate)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.ExitQuantity)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.ExpirationDate)
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.EntryDate)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.EntryQuantity)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.ExitDate)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.ExitQuantity)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.ExpirationDate)
+                        </td>
+                        <td>
+                            <a asp-action="Edit" class="btn btn-warning" asp-route-id="@item.Pkid">Editar</a> |
+                            <a asp-action="Details" class="btn btn-dark" asp-route-id="@item.Pkid">Detalles</a> |
+                            <a asp-action="Delete" class="btn btn-danger" asp-route-id="@item.Pkid">Borrar</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
     </section>
     <br>
     <br>

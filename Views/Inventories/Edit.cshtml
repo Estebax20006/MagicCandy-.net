@@ -1,0 +1,117 @@
+﻿@model MagicCandy.Models.Inventory
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<style>
+    .centered-form {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: #f0f8ff;
+    }
+
+    .form-container {
+        width: 500px;
+    }
+
+    .form-box {
+        background-color: #f0f8ff;
+        border: 1px solid #ddd;
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .btn-back {
+        background-color: #28a745;
+        color: #fff;
+        font-size: 20px;
+        padding: 10px 20px;
+        border-radius: 8px;
+        border: none;
+        text-decoration: none;
+    }
+
+    .center-button {
+        text-align: center;
+    }
+
+    .container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #f0f8ff;
+        border-radius: 10px;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .row {
+        margin-bottom: 10px;
+    }
+
+    .form-group {
+        margin-bottom: 20px;
+    }
+</style>
+
+<div class="centered-form">
+    <div class="form-container">
+        <div class="form-box">
+            <form asp-action="Edit">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="EntryDate" class="control-label"></label>
+                    <input asp-for="EntryDate" class="form-control" />
+                    <span asp-validation-for="EntryDate" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="EntryQuantity" class="control-label"></label>
+                    <input asp-for="EntryQuantity" class="form-control" />
+                    <span asp-validation-for="EntryQuantity" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="ExitDate" class="control-label"></label>
+                    <input asp-for="ExitDate" class="form-control" />
+                    <span asp-validation-for="ExitDate" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="ExitQuantity" class="control-label"></label>
+                    <input asp-for="ExitQuantity" class="form-control" />
+                    <span asp-validation-for="ExitQuantity" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="ExpirationDate" class="control-label"></label>
+                    <input asp-for="ExpirationDate" class="form-control" />
+                    <span asp-validation-for="ExpirationDate" class="text-danger"></span>
+                </div>
+                <input type="hidden" asp-for="Pkid" />
+                <div class="form-group">
+                    <label asp-for="TotalQuantity" class="control-label"></label>
+                    <input asp-for="TotalQuantity" class="form-control" />
+                    <span asp-validation-for="TotalQuantity" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="ExitDescription" class="control-label"></label>
+                    <input asp-for="ExitDescription" class="form-control" />
+                    <span asp-validation-for="ExitDescription" class="text-danger"></span>
+                </div>
+                <div class="form-group center-button">
+                    <input type="submit" value="Save" class="btn btn-primary" />
+                </div>
+            </form>
+        </div>
+        <br /><br />
+        <div class="text-center">
+            <a asp-action="Index" class="btn btn-back">Listado</a>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
