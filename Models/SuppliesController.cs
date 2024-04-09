@@ -1,26 +1,29 @@
-﻿using MagicCandy.Models;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 
-
-namespace MagicCandy.Controllers
+namespace MagicCandy.Models
 {
-    public class UsersController : Controller
+    public class SuppliesController : Controller
     {
         private readonly MagicandyContext _context;
 
-        public UsersController(MagicandyContext context)
+        public SuppliesController(MagicandyContext context)
         {
             _context = context;
         }
 
-        // GET: Users
+        // GET: Supplies
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Users.ToListAsync());
+            return View(await _context.Supplies.ToListAsync());
         }
 
-        // GET: Users/Details/5
+        // GET: Supplies/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -28,37 +31,39 @@ namespace MagicCandy.Controllers
                 return NotFound();
             }
 
-            var user = await _context.Users
-                .FirstOrDefaultAsync(m => m.Id == id);
-            if (user == null)
+            var supply = await _context.Supplies
+                .FirstOrDefaultAsync(m => m.Pkid == id);
+            if (supply == null)
             {
                 return NotFound();
             }
 
-            return View(user);
+            return View(supply);
         }
 
-        // GET: Users/Create
+        // GET: Supplies/Create
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: Users/Create
+        // POST: Supplies/Create
+        // To protect from overposting attacks, enable the specific properties you want to bind to.
+        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Username,Email,Password")] User user)
+        public async Task<IActionResult> Create([Bind("Pkid,Quantity,Category,Unit,Name")] Supply supply)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(user);
+                _context.Add(supply);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(user);
+            return View(supply);
         }
 
-        // GET: Users/Edit/5
+        // GET: Supplies/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -66,20 +71,22 @@ namespace MagicCandy.Controllers
                 return NotFound();
             }
 
-            var user = await _context.Users.FindAsync(id);
-            if (user == null)
+            var supply = await _context.Supplies.FindAsync(id);
+            if (supply == null)
             {
                 return NotFound();
             }
-            return View(user);
+            return View(supply);
         }
 
-        // POST: Users/Edit/5
+        // POST: Supplies/Edit/5
+        // To protect from overposting attacks, enable the specific properties you want to bind to.
+        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Username,Email,Password")] User user)
+        public async Task<IActionResult> Edit(int id, [Bind("Pkid,Quantity,Category,Unit,Name")] Supply supply)
         {
-            if (id != user.Id)
+            if (id != supply.Pkid)
             {
                 return NotFound();
             }
@@ -88,12 +95,12 @@ namespace MagicCandy.Controllers
             {
                 try
                 {
-                    _context.Update(user);
+                    _context.Update(supply);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!UserExists(user.Id))
+                    if (!SupplyExists(supply.Pkid))
                     {
                         return NotFound();
                     }
@@ -104,10 +111,10 @@ namespace MagicCandy.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(user);
+            return View(supply);
         }
 
-        // GET: Users/Delete/5
+        // GET: Supplies/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -115,34 +122,34 @@ namespace MagicCandy.Controllers
                 return NotFound();
             }
 
-            var user = await _context.Users
-                .FirstOrDefaultAsync(m => m.Id == id);
-            if (user == null)
+            var supply = await _context.Supplies
+                .FirstOrDefaultAsync(m => m.Pkid == id);
+            if (supply == null)
             {
                 return NotFound();
             }
 
-            return View(user);
+            return View(supply);
         }
 
-        // POST: Users/Delete/5
+        // POST: Supplies/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var user = await _context.Users.FindAsync(id);
-            if (user != null)
+            var supply = await _context.Supplies.FindAsync(id);
+            if (supply != null)
             {
-                _context.Users.Remove(user);
+                _context.Supplies.Remove(supply);
             }
 
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool UserExists(int id)
+        private bool SupplyExists(int id)
         {
-            return _context.Users.Any(e => e.Id == id);
+            return _context.Supplies.Any(e => e.Pkid == id);
         }
     }
 }

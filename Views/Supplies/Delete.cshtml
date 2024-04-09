@@ -1,4 +1,4 @@
-﻿@model MagicCandy.Models.Product
+﻿@model MagicCandy.Models.Supply
 
 @{
     ViewData["Title"] = "Delete";
@@ -13,11 +13,11 @@
         background-color: #f0f8ff; /* Fondo azul clarito */
     }
 
-    .delete-container {
-        width: 500px; /* Ancho del contenedor de eliminación */
+    .form-container {
+        width: 500px; /* Ancho del contenedor del formulario */
     }
 
-    .delete-box {
+    .form-box {
         background-color: #f9f9f9;
         border: 1px solid #ddd;
         padding: 30px;
@@ -25,7 +25,7 @@
         box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
     }
 
-    .btn-delete {
+    .btn-danger {
         background-color: #dc3545; /* Color rojo para el botón de eliminación */
         color: #fff;
         font-size: 20px; /* Tamaño de fuente más grande */
@@ -44,11 +44,15 @@
         border: none;
         text-decoration: none;
     }
+
+    .center-button {
+        text-align: center;
+    }
 </style>
 
 <div class="centered-form">
-    <div class="delete-container">
-        <div class="delete-box">
+    <div class="form-container">
+        <div class="form-box">
             <div>
                 <hr />
                 <dl class="row">
@@ -59,16 +63,16 @@
                         @Html.DisplayFor(model => model.Quantity)
                     </dd>
                     <dt class="col-sm-2">
-                        @Html.DisplayNameFor(model => model.UnitPrice)
-                    </dt>
-                    <dd class="col-sm-10">
-                        @Html.DisplayFor(model => model.UnitPrice)
-                    </dd>
-                    <dt class="col-sm-2">
                         @Html.DisplayNameFor(model => model.Category)
                     </dt>
                     <dd class="col-sm-10">
                         @Html.DisplayFor(model => model.Category)
+                    </dd>
+                    <dt class="col-sm-2">
+                        @Html.DisplayNameFor(model => model.Unit)
+                    </dt>
+                    <dd class="col-sm-10">
+                        @Html.DisplayFor(model => model.Unit)
                     </dd>
                     <dt class="col-sm-2">
                         @Html.DisplayNameFor(model => model.Name)
@@ -76,21 +80,15 @@
                     <dd class="col-sm-10">
                         @Html.DisplayFor(model => model.Name)
                     </dd>
-                    <dt class="col-sm-2">
-                        @Html.DisplayNameFor(model => model.ProductImage)
-                    </dt>
-                    <dd class="col-sm-10">
-                        @Html.DisplayFor(model => model.ProductImage)
-                    </dd>
                 </dl>
             </div>
-            <div>
-                <form asp-action="Delete">
-                    <input type="hidden" asp-for="Pkid" />
-                    <input type="submit" value="Delete" class="btn btn-delete" /> |
+            <form asp-action="Delete">
+                <input type="hidden" asp-for="Pkid" />
+                <div class="center-button">
+                    <input type="submit" value="Delete" class="btn btn-danger" /> |
                     <a asp-action="Index" class="btn btn-back">Back to List</a>
-                </form>
-            </div>
+                </div>
+            </form>
         </div>
     </div>
 </div>

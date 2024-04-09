@@ -52,11 +52,11 @@ namespace MagicCandy.Controllers
         {
             return View();
         }
-
-        public IActionResult Perfil()
+        public IActionResult InsumoIngreso()
         {
             return View();
         }
+
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
